@@ -1,13 +1,11 @@
 #! /usr/bin/env ruby
-#  encoding: UTF-8
-#   <script name>
+#
+#   check-temperature
 #
 # DESCRIPTION:
-#   This plugin uses sensors to check current temperature against the inherent high and critical values
-#   by deafult or user provided alternatives.
 #
 # OUTPUT:
-#   Temperature Check
+#   plain text
 #
 # PLATFORMS:
 #   Linux
@@ -22,6 +20,7 @@
 # NOTES:
 #
 # LICENSE:
+#   Jordan Beauchamp beauchjord@gmail.com
 #   Released under the same terms as Sensu (the MIT license); see LICENSE
 #   for details.
 #
@@ -33,7 +32,6 @@ require 'socket'
 # Sensors
 #
 class CheckTemperature < Sensu::Plugin::Check::CLI
-
   #
   # Setup variables
   #
@@ -42,20 +40,19 @@ class CheckTemperature < Sensu::Plugin::Check::CLI
     @crit_temp = []
     @warn_temp = []
   end
-  
+
   #
   # Generate output
   #
+
   def usage_summary
     (@crit_temp + @warn_temp).join(', ')
   end
-  
 
   #
   # Main function
   #
   def run
-    
     raw = `sensors`
     sections = raw.split("\n\n")
     metrics = {}
@@ -86,7 +83,6 @@ class CheckTemperature < Sensu::Plugin::Check::CLI
     critical usage_summary unless @crit_temp.empty?
     warning usage_summary unless @warn_temp.empty?
 
-    ok "All sensors are reporting safe temperature readings."
+    ok 'All sensors are reporting safe temperature readings.'
   end
-
 end

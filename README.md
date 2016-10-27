@@ -10,6 +10,7 @@
 
 ## Files
  * bin/metrics-temperature.rb
+ * bin/check-temperature.rb
 
 ## Usage
 
@@ -18,3 +19,4 @@
 [Installation and Setup](http://sensu-plugins.io/docs/installation_instructions.html)
 
 ## Notes
+Temperature maps 'high' and 'crit' values as reported by `lm-sensors` to warning and critical status respectivley.
