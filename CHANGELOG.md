@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## Unreleased][unreleased]
+### Changed
+- made metrics aware of multiple chips
+- made metrics also collect power draw
 
 ## [0.0.3] - 2015-07-14
 ### Changed
