@@ -54,7 +54,6 @@ class Sensors < Sensu::Plugin::Metric::CLI::Graphite
 
       # all other lines are metrics
       lines[1..-1].each do |line|
-
         begin
           key, value = line.split(':')
           key = key.downcase.gsub(/\s/, '')
