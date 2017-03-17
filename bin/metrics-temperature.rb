@@ -41,17 +41,27 @@ class Sensors < Sensu::Plugin::Metric::CLI::Graphite
          default: "#{Socket.gethostname}.sensors"
 
   def run
-    raw = `sensors`
+    raw = `sensors -A`
     sections = raw.split("\n\n")
     metrics = {}
+
+    # split into sections for each chip
     sections.each do |section|
-      section.split("\n").drop(1).each do |line|
+      lines = section.split("\n")
+
+      # the first line is the chip name
+      chip =  lines[0]
+
+      # all other lines are metrics
+      lines[1..-1].each do |line|
         begin
           key, value = line.split(':')
           key = key.downcase.gsub(/\s/, '')
-          if key[0..3] == 'temp' || key[0..3] == 'core'
+
+          if key.start_with?('temp', 'core', 'loc', 'power', 'physical')
             value.strip =~ /[\+\-]?(\d+(\.\d)?)/
-            value = $1 # rubocop:disable PerlBackrefs
+            value = Regexp.last_match[1]
+            key = [chip, key].join('.')
             metrics[key] = value
           end
         rescue
