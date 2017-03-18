@@ -3,15 +3,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
-
 ## [Unreleased]
+- added temperature check (@holygits)
 
 ## [1.0.0] - 2017-03-15
 ### Added
 - made metrics aware of multiple chips (@GhostLyrics)
 - made metrics also collect power draw (@GhostLyrics)
 - support for Ruby 2.3.0 (@eheydrick)
-- added temperature check (@holygits)
 
 ### Removed
 - support for Ruby < 2 (@eheydrick)
