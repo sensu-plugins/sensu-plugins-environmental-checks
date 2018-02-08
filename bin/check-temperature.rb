@@ -71,7 +71,6 @@ class CheckTemperature < Sensu::Plugin::Check::CLI
       end
     end
     metrics.each do |k, v|
-      print(v)
       current, high, critical = v
       if current > critical
         @crit_temp << "#{k} has exceeded CRITICAL temperature @ #{current}°C"
