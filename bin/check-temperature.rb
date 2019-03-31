@@ -52,8 +52,8 @@ class CheckTemperature < Sensu::Plugin::Check::CLI
   #
   # Main function
   #
-  def run
-    raw = `sensors`
+  def process_sensors(sensors)
+    raw = sensors
     sections = raw.split("\n\n")
     metrics = {}
     sections.each do |section|
@@ -83,5 +83,10 @@ class CheckTemperature < Sensu::Plugin::Check::CLI
     warning usage_summary unless @warn_temp.empty?
 
     ok 'All sensors are reporting safe temperature readings.'
+  end
+
+  def run
+    sensors = `sensors`
+    process_sensors(sensors)
   end
 end
