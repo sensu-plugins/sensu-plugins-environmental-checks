@@ -58,7 +58,7 @@ class Sensors < Sensu::Plugin::Metric::CLI::Graphite
           key, value = line.split(':')
           key = key.downcase.gsub(/\s/, '')
 
-          if key.start_with?('temp', 'core', 'loc', 'power', 'physical')
+          if key.start_with?('temp', 'core', 'loc', 'power', 'physical', 'packageid')
             value.strip =~ /[\+\-]?(\d+(\.\d)?)/
             value = Regexp.last_match[1]
             key = [chip, key].join('.')
