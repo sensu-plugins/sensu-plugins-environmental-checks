@@ -57,32 +57,8 @@ class CheckTemperature < Sensu::Plugin::Check::CLI
     sections = raw.split("\n\n")
     metrics = {}
     sections.each do |section|
-      section.split("\n").drop(1).each do |line|
-        begin
-          key, value = line.split(':')
-          key = key.downcase.gsub(/\s/, '')
-          if key.start_with?('temp', 'core', 'loc', 'physical')
-            current, high, critical = value.scan(/\+(\d+\.\d+)/i)
-            metrics[key] = [current[0], high[0], critical[0]].map(&:to_f)
-          end
-        rescue StandardError
-          print "malformed section from sensors: #{line}" + "\n"
-        end
-      end
+	    puts section
     end
-    metrics.each do |k, v|
-      current, high, critical = v
-      if current > critical
-        @crit_temp << "#{k} has exceeded CRITICAL temperature @ #{current}°C"
-      elsif current > high
-        @warn_temp << "#{k} has exceeded WARNING temperature @ #{current}°C"
-      end
-    end
-
-    critical usage_summary unless @crit_temp.empty?
-    warning usage_summary unless @warn_temp.empty?
-
-    ok 'All sensors are reporting safe temperature readings.'
   end
 
   def run

@@ -1,34 +1,152 @@
 nct6776-isa-0290
 Adapter: ISA adapter
-Vcore:          +1.01 V  (min =  +0.00 V, max =  +1.74 V)
-in1:            +0.18 V  (min =  +0.00 V, max =  +0.00 V)  ALARM
-AVCC:           +3.34 V  (min =  +2.98 V, max =  +3.63 V)
-+3.3V:          +3.33 V  (min =  +2.98 V, max =  +3.63 V)
-in4:            +0.55 V  (min =  +0.00 V, max =  +0.00 V)  ALARM
-in5:            +1.85 V  (min =  +0.00 V, max =  +0.00 V)  ALARM
-in6:            +1.69 V  (min =  +0.00 V, max =  +0.00 V)  ALARM
-3VSB:           +3.47 V  (min =  +2.98 V, max =  +3.63 V)
-Vbat:           +3.31 V  (min =  +2.70 V, max =  +3.63 V)
-fan1:             0 RPM  (min =    0 RPM)
-fan2:             0 RPM  (min =    0 RPM)
-SYSTIN:         +43.0°C  (high =  +0.0°C, hyst =  +0.0°C)  ALARM  sensor = thermistor
-CPUTIN:         +40.0°C  (high = +80.0°C, hyst = +75.0°C)  sensor = thermistor
-AUXTIN:         -14.0°C  (high = +80.0°C, hyst = +75.0°C)  sensor = thermistor
-PCH_CHIP_TEMP:   +0.0°C
-PCH_CPU_TEMP:    +0.0°C
-PCH_MCH_TEMP:    +0.0°C
-cpu0_vid:      +0.000 V
-intrusion0:    OK
-intrusion1:    OK
-beep_enable:   disabled
+Vcore:
+  in0_input: 1.008
+  in0_min: 0.000
+  in0_max: 1.744
+  in0_alarm: 0.000
+  in0_beep: 0.000
+in1:
+  in1_input: 0.184
+  in1_min: 0.000
+  in1_max: 0.000
+  in1_alarm: 1.000
+  in1_beep: 0.000
+AVCC:
+  in2_input: 3.328
+  in2_min: 2.976
+  in2_max: 3.632
+  in2_alarm: 0.000
+  in2_beep: 0.000
++3.3V:
+  in3_input: 3.344
+  in3_min: 2.976
+  in3_max: 3.632
+  in3_alarm: 0.000
+  in3_beep: 0.000
+in4:
+  in4_input: 0.552
+  in4_min: 0.000
+  in4_max: 0.000
+  in4_alarm: 1.000
+  in4_beep: 0.000
+in5:
+  in5_input: 1.856
+  in5_min: 0.000
+  in5_max: 0.000
+  in5_alarm: 1.000
+  in5_beep: 0.000
+in6:
+  in6_input: 1.696
+  in6_min: 0.000
+  in6_max: 0.000
+  in6_alarm: 1.000
+  in6_beep: 0.000
+3VSB:
+  in7_input: 3.472
+  in7_min: 2.976
+  in7_max: 3.632
+  in7_alarm: 0.000
+  in7_beep: 0.000
+Vbat:
+  in8_input: 3.312
+  in8_min: 2.704
+  in8_max: 3.632
+  in8_alarm: 0.000
+  in8_beep: 0.000
+fan1:
+  fan1_input: 0.000
+  fan1_min: 0.000
+  fan1_alarm: 0.000
+  fan1_beep: 0.000
+  fan1_pulses: 2.000
+fan2:
+  fan2_input: 0.000
+  fan2_min: 0.000
+  fan2_alarm: 0.000
+  fan2_beep: 0.000
+  fan2_pulses: 2.000
+SYSTIN:
+  temp1_input: 43.000
+  temp1_max: 0.000
+  temp1_max_hyst: 0.000
+  temp1_alarm: 1.000
+  temp1_type: 4.000
+  temp1_offset: 0.000
+  temp1_beep: 0.000
+CPUTIN:
+  temp2_input: 41.500
+  temp2_max: 80.000
+  temp2_max_hyst: 75.000
+  temp2_alarm: 0.000
+  temp2_type: 4.000
+  temp2_offset: 0.000
+  temp2_beep: 0.000
+AUXTIN:
+  temp3_input: -13.000
+  temp3_max: 80.000
+  temp3_max_hyst: 75.000
+  temp3_alarm: 0.000
+  temp3_type: 4.000
+  temp3_offset: 0.000
+  temp3_beep: 0.000
+PCH_CHIP_TEMP:
+  temp7_input: 0.000
+PCH_CPU_TEMP:
+  temp8_input: 0.000
+PCH_MCH_TEMP:
+  temp9_input: 0.000
+cpu0_vid:
+  cpu0_vid: 0.000
+intrusion0:
+  intrusion0_alarm: 0.000
+  intrusion0_beep: 0.000
+intrusion1:
+  intrusion1_alarm: 0.000
+  intrusion1_beep: 0.000
+beep_enable:
+  beep_enable: 0.000
 
 coretemp-isa-0000
 Adapter: ISA adapter
-Core 0:       +38.0°C  (high = +98.0°C, crit = +98.0°C)
-Core 1:       +37.0°C  (high = +98.0°C, crit = +98.0°C)
-Core 2:       +37.0°C  (high = +98.0°C, crit = +98.0°C)
-Core 3:       +37.0°C  (high = +98.0°C, crit = +98.0°C)
-Core 4:       +35.0°C  (high = +98.0°C, crit = +98.0°C)
-Core 5:       +35.0°C  (high = +98.0°C, crit = +98.0°C)
-Core 6:       +36.0°C  (high = +98.0°C, crit = +98.0°C)
-Core 7:       +35.0°C  (high = +98.0°C, crit = +98.0°C)
+Core 0:
+  temp2_input: 41.000
+  temp2_max: 98.000
+  temp2_crit: 98.000
+  temp2_crit_alarm: 0.000
+Core 1:
+  temp3_input: 39.000
+  temp3_max: 98.000
+  temp3_crit: 98.000
+  temp3_crit_alarm: 0.000
+Core 2:
+  temp4_input: 40.000
+  temp4_max: 98.000
+  temp4_crit: 98.000
+  temp4_crit_alarm: 0.000
+Core 3:
+  temp5_input: 39.000
+  temp5_max: 98.000
+  temp5_crit: 98.000
+  temp5_crit_alarm: 0.000
+Core 4:
+  temp6_input: 36.000
+  temp6_max: 98.000
+  temp6_crit: 98.000
+  temp6_crit_alarm: 0.000
+Core 5:
+  temp7_input: 36.000
+  temp7_max: 98.000
+  temp7_crit: 98.000
+  temp7_crit_alarm: 0.000
+Core 6:
+  temp8_input: 38.000
+  temp8_max: 98.000
+  temp8_crit: 98.000
+  temp8_crit_alarm: 0.000
+Core 7:
+  temp9_input: 37.000
+  temp9_max: 98.000
+  temp9_crit: 98.000
+  temp9_crit_alarm: 0.000
+
