@@ -56,15 +56,17 @@ class Sensors < Sensu::Plugin::Metric::CLI::Graphite
       # all other lines are metrics
       lines[1..-1].each do |line|
         begin
-          key, value = line.split(':')
-          key = key.downcase.gsub(/\s/, '')
-
-          if key.start_with?('temp', 'core', 'loc', 'power', 'physical', 'packageid')
-            value.strip =~ /[\+\-]?(\d+(\.\d)?)/
-            value = Regexp.last_match[1]
-            key = [chip, key].join('.')
-            metrics[key] = value
+          if line.include? ":"
+            key, value = line.split(':')
+            key = key.downcase.gsub(/\s/, '')
+          else
+            next
           end
+
+          value.strip =~ /[\+\-]?(\d+(\.\d)?)/
+          value = Regexp.last_match[1]
+          key = [chip, key].join('.')
+          metrics[key] = value
         rescue StandardError
           print "malformed section from sensors: #{line}" + "\n"
         end
